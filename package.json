@@ -1,6 +1,6 @@
 {
   "name": "kevoree-comp-ticker",
-  "version": "5.2.8",
+  "version": "5.2.9",
   "description": "A Kevoree component that sends a 'tick' message at user-defined intervals",
   "main": "./lib/Ticker.js",
   "kevoree": {
