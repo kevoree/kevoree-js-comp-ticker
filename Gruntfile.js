@@ -15,6 +15,15 @@ module.exports = function (grunt) {
             }
         },
 
+        kevoree: {
+            options: {
+                node: 'myNode',
+                ctxVars: {
+                    'node': 'myNode'
+                }
+            }
+        },
+
         // pushes your model on http://registry.kevoree.org
         kevoree_registry: { src: 'kevlib.json' },
 
