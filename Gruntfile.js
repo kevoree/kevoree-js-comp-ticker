@@ -17,10 +17,7 @@ module.exports = function (grunt) {
 
         kevoree: {
             options: {
-                node: 'myNode',
-                ctxVars: {
-                    'node': 'myNode'
-                }
+                browserDevMode: true
             }
         },
 
