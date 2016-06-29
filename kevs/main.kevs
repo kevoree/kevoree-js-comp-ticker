@@ -1,10 +1,10 @@
-add node : JavascriptNode
+add node0 : JavascriptNode
 add sync : WSGroup
-add node.ticker : Ticker
-add node.console : ConsolePrinter
+add node0.ticker : Ticker
+add node0.console : ConsolePrinter
 add chan : LocalChannel
 
-attach node sync
+attach node0 sync
 
-bind node.ticker.tick chan
-bind node.console.input chan
+bind node0.ticker.tick chan
+bind node0.console.input chan
