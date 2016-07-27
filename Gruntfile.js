@@ -7,12 +7,7 @@ module.exports = function(grunt) {
     // creates kevlib.json which represents your project Kevoree model
     // by parsing your pkg.main entry point
     kevoree_genmodel: {
-      main: {
-        options: {
-          quiet: false,
-          verbose: true
-        }
-      }
+      main: {}
     },
 
     kevoree: {
@@ -29,9 +24,10 @@ module.exports = function(grunt) {
     browserify: {
       browser: {
         options: {
+          external: ['kevoree-library'],
           alias: ['<%= pkg.main %>:<%= pkg.name %>']
         },
-        src: [],
+        src: '<%= pkg.main %>',
         dest: 'browser/<%= pkg.name %>.js'
       }
     },
@@ -72,7 +68,7 @@ module.exports = function(grunt) {
       ]);
     }
   });
-  grunt.registerTask('publish', 'kevoree_registry');
+  grunt.registerTask('publish', ['kevoree_genmodel', 'kevoree_registry']);
   grunt.registerTask('kev', ['kevoree']);
   grunt.registerTask('browser', ['browserify', 'uglify']);
   grunt.registerTask('browser:dev', 'browserify');

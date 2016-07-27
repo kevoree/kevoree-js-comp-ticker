@@ -1,10 +1,10 @@
 {
   "name": "kevoree-comp-ticker",
-  "version": "5.3.2",
+  "version": "5.3.3-alpha",
   "description": "A Kevoree component that sends a 'tick' message at user-defined intervals",
   "main": "./lib/Ticker.js",
   "kevoree": {
-    "package": "org.kevoree.library"
+    "namespace": "kevoree"
   },
   "scripts": {
     "prepublish": "grunt",
@@ -17,15 +17,15 @@
     "comp"
   ],
   "dependencies": {
-    "kevoree-entities": "^8.0.2"
+    "kevoree-entities": "^9.0.0-alpha.0"
   },
   "devDependencies": {
-    "grunt": "^0.4.1",
-    "grunt-browserify": "^3.5.1",
+    "grunt": "^1.0.1",
+    "grunt-browserify": "^5.0.0",
     "grunt-contrib-uglify": "^0.8.0",
     "grunt-kevoree": "^5.8.0",
-    "grunt-kevoree-genmodel": "^2.0.0",
-    "grunt-kevoree-registry": "^2.0.2"
+    "grunt-kevoree-genmodel": "^3.0.0",
+    "grunt-kevoree-registry": "^3.0.1"
   },
   "repository": {
     "type": "git",
