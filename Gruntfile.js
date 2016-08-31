@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = function(grunt) {
 
   grunt.initConfig({
@@ -11,8 +13,11 @@ module.exports = function(grunt) {
     },
 
     kevoree: {
-      options: {
-        browserDevMode: true
+      main: {
+        options: {
+          browserDevMode: true,
+          runtime: 'next'
+        }
       }
     },
 
