@@ -33,3 +33,4 @@ node_modules
 # Kevoree JS
 kevlib.json
 browser/kevoree-comp-ticker*.js
+yarn.lock
