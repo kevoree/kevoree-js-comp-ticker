@@ -1,2 +1,4 @@
-.idea/
-.deploy_units/
+.idea
+.deploy_units
+src
+!browser/kevoree-comp-ticker.js

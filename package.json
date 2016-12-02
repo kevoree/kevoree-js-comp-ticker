@@ -1,14 +1,16 @@
 {
   "name": "kevoree-comp-ticker",
-  "version": "5.3.3-alpha.2",
+  "version": "5.3.3-beta",
   "description": "A Kevoree component that sends a 'tick' message at user-defined intervals",
-  "main": "./lib/Ticker.js",
+  "main": "./dist/Ticker.js",
   "kevoree": {
-    "namespace": "kevoree"
+    "namespace": "kevoree",
+    "browser": "./src/browser/main.js"
   },
   "scripts": {
-    "prepublish": "grunt kevoree_genmodel browser",
-    "postpublish": "grunt kevoree_registry"
+    "prepublish": "npm run lint && grunt",
+    "postpublish": "grunt kevoree_registry",
+    "lint": "eslint src test"
   },
   "keywords": [
     "kevoree-std-lib",
@@ -17,15 +19,30 @@
     "comp"
   ],
   "dependencies": {
-    "kevoree-entities": "^9.0.0-alpha.0"
+    "kevoree-entities": "^9.0.0"
   },
   "devDependencies": {
+    "babel-core": "^6.18.2",
+    "babel-loader": "^6.2.8",
+    "babel-preset-react": "^6.16.0",
+    "eslint": "^3.9.1",
+    "eslint-config-airbnb-base": "^10.0.1",
+    "eslint-config-standard-jsx": "^3.2.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-react": "^6.7.1",
     "grunt": "^1.0.1",
-    "grunt-browserify": "^5.0.0",
-    "grunt-contrib-uglify": "^0.8.0",
-    "grunt-kevoree": "^5.9.0-alpha.2",
-    "grunt-kevoree-genmodel": "^3.0.0",
-    "grunt-kevoree-registry": "^3.0.1"
+    "grunt-babel": "^6.0.0",
+    "grunt-kevoree": "^5.9.1",
+    "grunt-kevoree-genmodel": "^3.0.1",
+    "grunt-kevoree-registry": "^3.0.3",
+    "grunt-webpack": "^1.0.18",
+    "json-loader": "^0.5.4",
+    "kevoree-core": "^9.0.0",
+    "load-grunt-tasks": "^3.5.2",
+    "react": "^15.4.1",
+    "standard": "^8.6.0",
+    "webpack": "^1.13.3",
+    "webpack-dev-server": "^1.16.2"
   },
   "repository": {
     "type": "git",
@@ -36,5 +53,21 @@
   "bugs": {
     "url": "https://github.com/kevoree/kevoree-js-comp-ticker/issues"
   },
-  "homepage": "https://github.com/kevoree/kevoree-js-comp-ticker"
+  "homepage": "https://github.com/kevoree/kevoree-js-comp-ticker",
+  "babel": {
+    "presets": [
+      "react"
+    ]
+  },
+  "eslintConfig": {
+    "extends": [
+      "standard",
+      "standard-jsx"
+    ],
+    "rules": {
+      "semi": 0,
+      "space-before-function-paren": 0,
+      "array-callback-return": 2
+    }
+  }
 }
