@@ -1,40 +1,33 @@
-'use strict';
+const webpack = require('webpack');
+const { resolve } = require('path');
+const pkg = require('./package.json');
 
-var DEV = (process.env.NODE_ENV !== 'production');
-
-var path = require('path');
-var webpack = require('webpack');
-
-var pkg = require('./package.json');
-
-var config = {
-  entry: path.resolve(pkg.kevoree.browser),
-  output: {
-    filename: path.join('browser', pkg.name + '.js')
-  },
-  module: {
-    loaders: [
-      {
-        test: /\.jsx?$/,
-        exclude: /node_modules/,
-        loader: 'babel'
-      },
-      {
-        test: /\.json$/,
-        loader: 'json'
-      }
-    ]
-  },
-  externals: {
-    'kevoree-library': 'KevoreeLibrary',
-    react: 'React',
-    'react-dom': 'ReactDOM'
-  },
-  plugins: []
+const config = {
+	entry: resolve(pkg.kevoree.browser),
+	output: {
+		filename: `${pkg.name}.js`,
+		path: resolve('browser')
+	},
+	module: {
+		rules: [
+			{
+				test: /\.jsx?$/,
+				exclude: /node_modules/,
+				loader: 'babel-loader'
+			}
+		]
+	},
+	externals: {
+		'kevoree-library': 'KevoreeLibrary',
+		'react': 'React',
+		'react-dom': 'ReactDOM'
+	},
+	plugins: [],
 };
 
-if (!DEV) {
-  config.plugins.push(new webpack.optimize.UglifyJsPlugin());
+if (process.env.NODE_ENV !== 'production') {
+	config.plugins.push(new webpack.HotModuleReplacementPlugin());
+	config.devtool = 'source-map';
 }
 
 module.exports = config;

@@ -1,6 +1,8 @@
 /* globals KevoreeModuleLoader */
-
-var pkg = require('../../package.json');
-var Ticker = require('./TickerUI');
-
-KevoreeModuleLoader.register(pkg.name, pkg.version, Ticker);
+() => {
+	console.log('swag'); // eslint-disable-line
+};
+// const pkg = require('../../package.json');
+// const Ticker = require('./TickerUI');
+//
+// KevoreeModuleLoader.register(pkg.name, pkg.version, Ticker);
