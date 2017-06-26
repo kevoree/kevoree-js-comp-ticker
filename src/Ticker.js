@@ -11,7 +11,7 @@ module.exports = AbstractComponent.extend({
 	dic_random: { optional: true, defaultValue: false },
 	dic_period: { optional: true, defaultValue: 3000, datatype: 'long' },
 
-	start: function onStart(done) {
+	start(done) {
 		clearInterval(this.tickId);
 		this.tickId = setInterval(() => {
 			let value;
@@ -25,12 +25,12 @@ module.exports = AbstractComponent.extend({
 		done();
 	},
 
-	stop: function onStop(done) {
+	stop(done) {
 		clearInterval(this.tickId);
 		done();
 	},
 
-	update: function onUpdate(done) {
+	update(done) {
 		this.stop(() => {
 			this.start(done);
 		});
@@ -39,5 +39,5 @@ module.exports = AbstractComponent.extend({
 	/**
 	 * Output port "tick"
 	 */
-	out_tick: function onTick() {}
+	out_tick() {}
 });

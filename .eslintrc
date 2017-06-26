@@ -24,10 +24,6 @@ rules:
   semi:
   - 2
   - always
-  indent:
-  - 2
-  - tab
-  - SwitchCase: 1
   linebreak-style: 0
   eol-last: 2
   no-undef:
